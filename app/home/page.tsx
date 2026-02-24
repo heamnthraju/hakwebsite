@@ -1,8 +1,5 @@
-
-
 'use client';
 import { useState, useEffect } from 'react';
-import Link from 'next/link';
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -91,39 +88,6 @@ export default function Home() {
         .hamburger span {
           display: block; width: 24px; height: 2px;
           background: var(--white); transition: all 0.3s;
-        }
-
-        /* MOBILE MENU */
-        .mobile-menu {
-          display: none;
-          position: fixed;
-          top: 70px; left: 0; right: 0;
-          background: rgba(10,10,15,0.98);
-          backdrop-filter: blur(20px);
-          border-bottom: 1px solid var(--border);
-          padding: 1.5rem 5%;
-          z-index: 99;
-          flex-direction: column;
-          gap: 1rem;
-        }
-
-        .mobile-menu.open { display: flex; }
-
-        .mobile-menu a {
-          color: var(--muted); text-decoration: none;
-          font-size: 1rem; font-weight: 500;
-          padding: 0.5rem 0;
-          border-bottom: 1px solid var(--border);
-          transition: color 0.2s;
-        }
-
-        .mobile-menu a:hover { color: var(--white); }
-
-        .mobile-menu .mob-cta {
-          background: var(--accent); color: var(--black) !important;
-          padding: 0.75rem 1.2rem; border-radius: 6px;
-          font-weight: 600 !important; text-align: center;
-          border-bottom: none; margin-top: 0.5rem;
         }
 
         /* HERO */
@@ -487,29 +451,18 @@ export default function Home() {
 
       {/* NAV */}
       <nav>
-        <Link href="/" className="nav-logo">HAK <span>Projects</span></Link>
+        <a href="#" className="nav-logo">HAK <span>Projects</span></a>
         <ul className="nav-links">
-          <li><Link href="/">Home</Link></li>
-          {/* ✅ FIXED: Now links to /about page instead of #about anchor */}
-          <li><Link href="/about">About</Link></li>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
           <li><a href="#services">Services</a></li>
           <li><a href="#projects">Projects</a></li>
-          <li><Link href="/contact" className="nav-cta">Contact</Link></li>
+          <li><a href="#contact" className="nav-cta">Contact</a></li>
         </ul>
         <button className="hamburger" onClick={() => setMenuOpen(!menuOpen)} aria-label="Menu">
           <span></span><span></span><span></span>
         </button>
       </nav>
-
-      {/* MOBILE MENU */}
-      <div className={`mobile-menu ${menuOpen ? 'open' : ''}`}>
-        <Link href="/" onClick={() => setMenuOpen(false)}>Home</Link>
-        {/* ✅ FIXED: Mobile menu also links to /about page */}
-        <Link href="/about" onClick={() => setMenuOpen(false)}>About</Link>
-        <a href="#services" onClick={() => setMenuOpen(false)}>Services</a>
-        <a href="#projects" onClick={() => setMenuOpen(false)}>Projects</a>
-        <Link href="/contact" className="mob-cta" onClick={() => setMenuOpen(false)}>Contact</Link>
-      </div>
 
       {/* HERO */}
       <section className="hero" id="home">
@@ -583,10 +536,9 @@ export default function Home() {
               ERP, CRM, mobile applications, digital marketing, and training. We have been
               serving financial institutions and companies of all sizes since our founding.
             </p>
-            {/* ✅ FIXED: "Work With Us" button also goes to /about page */}
-            <Link href="/about" className="btn-primary" style={{display:'inline-block', marginTop:'1rem'}}>
-              Learn More About Us
-            </Link>
+            <a href="#contact" className="btn-primary" style={{display:'inline-block', marginTop:'1rem'}}>
+              Work With Us
+            </a>
           </div>
 
           <div className="services-grid" id="services">
@@ -664,7 +616,7 @@ export default function Home() {
       {/* FOOTER */}
       <footer id="contact">
         <div className="footer-brand">
-          <Link href="/" className="nav-logo" style={{textDecoration:'none'}}>HAK <span style={{color:'var(--accent)'}}>Projects</span></Link>
+          <a href="#" className="nav-logo" style={{textDecoration:'none'}}>HAK <span style={{color:'var(--accent)'}}>Projects</span></a>
           <p>
             We provide cutting-edge IT solutions to help businesses grow
             and succeed in the digital world. Let's build something great together.
@@ -673,18 +625,17 @@ export default function Home() {
         <div className="footer-col">
           <h4>IT Solutions</h4>
           <ul>
-            <li><a href="#services">Web Development</a></li>
-            <li><a href="#services">ERP Dashboard</a></li>
-            <li><a href="#services">Mobile Apps</a></li>
-            <li><a href="#services">AWS Cloud</a></li>
+            <li><a href="#">Web Development</a></li>
+            <li><a href="#">ERP Dashboard</a></li>
+            <li><a href="#">Mobile Apps</a></li>
+            <li><a href="#">AWS Cloud</a></li>
           </ul>
         </div>
         <div className="footer-col">
           <h4>Quick Links</h4>
           <ul>
-            <li><Link href="/">Home</Link></li>
-            {/* ✅ FIXED: Footer About link also goes to /about page */}
-            <li><Link href="/about">About Us</Link></li>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About Us</a></li>
             <li><a href="#projects">Projects</a></li>
             <li><a href="#contact">Contact Us</a></li>
           </ul>
